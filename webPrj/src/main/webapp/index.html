@@ -29,7 +29,7 @@
 	<button onclick="chk4()">eval("var x = 3+5") 확인</button>
 	<button onclick="chk5()">'cat' || 'dog' 확인</button>
 	
-	<script type="text/javascript">
+	<script type="text/javascript"> 
 	var x =3;
 	var nums = new Array();
 	nums[3] = 5;
@@ -85,6 +85,34 @@
 		alert(s);
 	}
 	
+	function add(){
+		return arguments[0]+ arguments[1];
+	}
+	console.log(add(3,7));
+	
+	a = 1; //var 정의하지 않으면 window의 전역객체 함수 안에서도 사용
+	alert(window.a);
+	var a; // 선언으로 스택에 가서 위에 window.a가 undifined
+
+	var funcs = [];
+
+    //funcs[0] = function(){ console.log(0);};
+    //funcs[1] = function(){ console.log(1);};
+    //funcs[2] = function(){ console.log(2);};
+    
+    for (var i = 0; i < 3; i++) { 
+		funcs[i] = function(){console.log(i);};
+	}
+    
+    for( a in funcs){
+        funcs[a]();
+    }
+	var i = 5;
+    funcs[0]();
+    funcs[1]();
+    funcs[2]();
+	//반복문이 끝나도 로그안에 증가된 i가 물려서 안 없어짐 i=3
+	//추가 출력에 같은 i를 다시 초기화 하면 대체
 	</script>
 	
 	
