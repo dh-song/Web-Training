@@ -4,6 +4,30 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+<script>
+	function Exam(){
+		this.kor = 38;
+		this.eng = 50;
+		this.math = 90;
+		// console.log(this.kor);//this 생략 불가능
+		this.total = function(){
+			var tal = this.kor + this.eng + this.math;
+			return tal;
+		}
+		
+	}
+	// var exam1 = new Exam(); // 함수에 new가 생성자 역할
+	var exam = new Exam(); //this
+	console.log(exam.total());
+	Exam(); //전역
+	// console.log(exam1);
+	// console.log(exam1.kor);
+
+
+
+</script>
+
 <body>
 <section>
 	<ul>
