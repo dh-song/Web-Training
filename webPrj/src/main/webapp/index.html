@@ -11,19 +11,52 @@
 		this.eng = 50;
 		this.math = 90;
 		// console.log(this.kor);//this 생략 불가능
-		this.total = function(){
-			var tal = this.kor + this.eng + this.math;
-			return tal;
-		}
-		
+		// this.total = function(){
+		// 	var tal = this.kor + this.eng + this.math;
+		// 	return tal;
+		// }
+	}
+	// Exam.prototype.total = function(){
+	// 		var tal = this.kor + this.eng + this.math;
+	// 		return tal;
+
+		// }
+	// var v = {
+	// 	total : function() {return this.kor + this.eng + this.math;},
+	// 	avg : function() {return this.total()/3;}
+	// }
+	// Exam.prototype = v;
+
+	Exam.prototype = { //pototype은 모두 공유
+		total : function() {return this.kor + this.eng + this.math;},
+		avg : function() {return this.total()/3;}
 	}
 	// var exam1 = new Exam(); // 함수에 new가 생성자 역할
 	var exam = new Exam(); //this
 	console.log(exam.total());
+	console.log(exam.avg());
+	// var exam1 = new Exam();
+	// console.log(exam1.total());
 	Exam(); //전역
 	// console.log(exam1);
 	// console.log(exam1.kor);
+	//배열 자체에 prototype 추가
+	Array.prototype.total = function(){return 30;} //추가 Array생성자의 prototype
+	var ary2 = [];
+	ary2.constructor.prototype.avg = function(){return 20;} //위와 동일
+	console.log(ary2.constructor === Array); //객체는 자기 생성자를 앎
+	console.log(ary2.constructor);
+	console.log(typeof Array);
+	console.log(ary2.total());
+	// Array.prototype = {total : function(){};} //대체
+	var exam2 = Object.create(exam); //exam을 exam2 prototype으로 생성
+	console.log(exam);
+	console.log(exam2);
+	console.log(exam2.total());
 
+	function nv(){
+	window.location = "https://naver.com";
+	}
 
 
 </script>
@@ -52,91 +85,96 @@
 	<button onclick="chk3()">exam["kor"] 확인</button>
 	<button onclick="chk4()">eval("var x = 3+5") 확인</button>
 	<button onclick="chk5()">'cat' || 'dog' 확인</button>
+	<button onclick="nv()">네이버로 감</button>
 	
 	<script type="text/javascript"> 
-	var x =3;
-	var nums = new Array();
-	nums[3] = 5;
-	console.log(nums);
-	console.log(nums.legnth);
-	
-	var nums = new Array(3, 6, "hello",9,1,2);
-	console.log(typeof nums[2]);
-	
-	//스택
-	nums.push(2);
-	console.log(nums);
-	var a1 = nums.pop();
-	
-	console.log(nums);
-	console.log(a1);
-	
-	//스트림
-	var a2 = nums.shift();
-	//unshift();
-	var nums = new Array(1,3,2,4,5,6);
-	console.log(nums);
-	//nums.splice(2);
-	//nums.splice(2,2);
-	nums.splice(1,2,23,24,25);
-	console.log(nums);
-	
-	function chk() {
-		alert(x == undefined);
-	}
-	
-	var exam = new Object();
-	exam.kor = 30;
-	exam.eng = 70;
-	exam.math = 90;
-	
-	function chk2() {
-		alert(exam.kor + exam.math);
-	}
-	
-	function chk3() {
-		alert(exam["kor"]);
-	}
-	delete exam.eng; //map 처럼 사용 가능?
-	console.log(exam);
-	
-	function chk4() {
-		eval("var x = 3+5");
-		alert(x);
-	}
-	function chk5() {
-		var s = ' ' || '' || 'cat' || 'dog';
-		alert(s);
-	}
-	
-	function add(){
-		return arguments[0]+ arguments[1];
-	}
-	console.log(add(3,7));
-	
-	a = 1; //var 정의하지 않으면 window의 전역객체 함수 안에서도 사용
-	alert(window.a);
-	var a; // 선언으로 스택에 가서 위에 window.a가 undifined
 
-	var funcs = [];
+	// var x =3;
+	// var nums = new Array();
+	// nums[3] = 5;
+	// console.log(nums);
+	// console.log(nums.legnth);
+	
+	// var nums = new Array(3, 6, "hello",9,1,2);
+	// console.log(typeof nums[2]);
+	
+	// //스택
+	// nums.push(2);
+	// console.log(nums);
+	// var a1 = nums.pop();
+	
+	// console.log(nums);
+	// console.log(a1);
+	
+	// //스트림
+	// var a2 = nums.shift();
+	// //unshift();
+	// var nums = new Array(1,3,2,4,5,6);
+	// console.log(nums);
+	// //nums.splice(2);
+	// //nums.splice(2,2);
+	// nums.splice(1,2,23,24,25);
+	// console.log(nums);
+	
+	// function chk() {
+	// 	alert(x == undefined);
+	// }
+	
+	// var exam = new Object();
+	// exam.kor = 30;
+	// exam.eng = 70;
+	// exam.math = 90;
+	
+	// function chk2() {
+	// 	alert(exam.kor + exam.math);
+	// }
+	
+	// function chk3() {
+	// 	alert(exam["kor"]);
+	// }
+	// delete exam.eng; //map 처럼 사용 가능?
+	// console.log(exam);
+	
+	// function chk4() {
+	// 	eval("var x = 3+5");
+	// 	alert(x);
+	// }
+	// function chk5() {
+	// 	var s = ' ' || '' || 'cat' || 'dog';
+	// 	alert(s);
+	// }
+	
+	// function add(){
+	// 	return arguments[0]+ arguments[1];
+	// }
+	// console.log(add(3,7));
+	
+	// a = 1; //var 정의하지 않으면 window의 전역객체 함수 안에서도 사용
+	// alert(window.a);
+	// var a; // 선언으로 스택에 가서 위에 window.a가 undifined
 
-    //funcs[0] = function(){ console.log(0);};
-    //funcs[1] = function(){ console.log(1);};
-    //funcs[2] = function(){ console.log(2);};
+	// var funcs = [];
+
+    // //funcs[0] = function(){ console.log(0);};
+    // //funcs[1] = function(){ console.log(1);};
+    // //funcs[2] = function(){ console.log(2);};
     
-    for (var i = 0; i < 3; i++) { 
-		funcs[i] = function(){console.log(i);};
-	}
+    // for (var i = 0; i < 3; i++) { 
+	// 	funcs[i] = function(){console.log(i);};
+	// }
     
-    for( a in funcs){
-        funcs[a]();
-    }
-	var i = 5;
-    funcs[0]();
-    funcs[1]();
-    funcs[2]();
-	//반복문이 끝나도 로그안에 증가된 i가 물려서 안 없어짐 i=3
-	//추가 출력에 같은 i를 다시 초기화 하면 대체
+    // for( a in funcs){
+    //     funcs[a]();
+    // }
+	
+    // funcs[0]();
+    // funcs[1]();
+    // funcs[2]();
+    
+    // var i = 5;
+	// //반복문이 끝나도 로그안에 증가된 i가 물려서 안 없어짐 i=3
+	// //추가 출력에 같은 i를 다시 초기화 하면 대체
+	
 	</script>
 	
 	
