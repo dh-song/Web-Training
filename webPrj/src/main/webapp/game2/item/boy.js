@@ -26,6 +26,7 @@ class Boy {
     }
 
     draw(ctx) {
+        
         var img = new Image();
         img.src = "./image/1.png";
         img.onload = function () { //this 는 Boy가 아니고 img(함수를 부른 쪽의 this)
