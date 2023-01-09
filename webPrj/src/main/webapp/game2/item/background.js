@@ -1,4 +1,4 @@
-class Background{
+export default class Background{
     constructor(){
 
         this.x = 0;

@@ -1,4 +1,8 @@
-class GameCanvas {
+import Boy from "../item/boy.js";
+import Background from "../item/background.js";
+import Enemy from "../item/enemy.js";
+
+export default class GameCanvas {
 
     constructor() {
         this.dom = document.querySelector(".game-canvas");
@@ -6,13 +10,18 @@ class GameCanvas {
         /** @type {CanvasRenderingContext2D}*/
         this.ctx = this.dom.getContext("2d");
         this.boy = new Boy(100, 100);
+        this.enemy = new Enemy(350, 100);
         this.bg = new Background();
 
         this.gameover = false;
         this.pause = false;
 
+        this.boy.Speed++; //get, set 띄어쓰기 후 속성처럼 사용.
+        // this.boy.setSpeed(this.boy.getSpeed()+0); // #비공개로 getter, setter 이용
+
         this.dom.onclick = this.clickHandler.bind(this); //bind가 없으면 main 캔버스
         this.dom.onkeydown = this.keyDownHandler.bind(this);
+        this.dom.onkeyup = this.keyUpHandler.bind(this);
 
     }
 
@@ -36,16 +45,19 @@ class GameCanvas {
         window.setTimeout(() => { //밖 this를 쓰지만 지역화가 없음
             this.run();
             console.log("time out");
-        }, 15);
+        }, 5);
     }
     update() {
         this.boy.update();
+        this.enemy.update();
         // this.boy.move(2);
 
     }
     draw() {
         this.bg.draw(this.ctx);
         this.boy.draw(this.ctx);
+        this.enemy.draw(this.ctx);
+
     }
 
     pause1() {
@@ -62,7 +74,7 @@ class GameCanvas {
 
     }
     keyDownHandler(e) {
-        
+
         switch (e.key) {
             case 'ArrowUp':
                 this.boy.move(1);
@@ -84,6 +96,30 @@ class GameCanvas {
                 break;
         }
     }
+    keyUpHandler(e) {
+
+        switch (e.key) {
+            case 'ArrowUp':
+                this.boy.stop(1);
+                break;
+
+            case 'ArrowRight':
+                this.boy.stop(2);
+                break;
+
+            case 'ArrowDown':
+                this.boy.stop(3);
+                break;
+
+            case 'ArrowLeft':
+                this.boy.stop(4);
+                break;
+
+            default:
+                break;
+        }
+    }
+
 }
 
-
+// export default GameCanvas;
