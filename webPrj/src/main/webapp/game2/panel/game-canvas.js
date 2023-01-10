@@ -10,8 +10,23 @@ export default class GameCanvas {
         /** @type {CanvasRenderingContext2D}*/
         this.ctx = this.dom.getContext("2d");
         this.boy = new Boy(100, 100);
-        this.enemy = new Enemy(350, 100);
+
+        this.enemies = [];
+        this.enmGenSpeed = 60;
+        // this.enemies = [new Enemy(100, 20), new Enemy(150, 30),
+        // new Enemy(200, 40), new Enemy(250, 50), new Enemy(300, 60), new Enemy(350, 70),
+        // new Enemy(400, 80), new Enemy(450, 90), new Enemy(500, 100), new Enemy(550, 110), ];
+
         this.bg = new Background();
+
+        // 콜백 함수
+        // for (let enemy of this.enemies) {
+        //     enemy.onOutOfScreen = (en) => {
+        //         console.log(this.enemies.indexOf(en));
+        //         this.enemies.splice(this.enemies.indexOf(en), 1);
+        //     }
+        // }
+
 
         this.gameover = false;
         this.pause = false;
@@ -22,6 +37,8 @@ export default class GameCanvas {
         this.dom.onclick = this.clickHandler.bind(this); //bind가 없으면 main 캔버스
         this.dom.onkeydown = this.keyDownHandler.bind(this);
         this.dom.onkeyup = this.keyUpHandler.bind(this);
+
+
 
     }
 
@@ -49,14 +66,52 @@ export default class GameCanvas {
     }
     update() {
         this.boy.update();
-        this.enemy.update();
+        for (let enemy of this.enemies) {
+            enemy.update();
+        }
+
+        this.enmGenSpeed--;
         // this.boy.move(2);
+
+        if (this.enmGenSpeed == 0) {
+            let min = Math.ceil(0);
+            let max = Math.floor(700);
+            let ran = Math.floor(Math.random() * (max - min + 1)) + min;
+            let x = ran; // -50~ this.dom.width+50;
+            let y = 50;
+
+            // this.enemies.push(new Enemy(x, y));
+            // for (let enemy of this.enemies) {
+            //     enemy.onOutOfScreen = (en) => {
+            //         console.log(this.enemies.indexOf(en));
+            //         this.enemies.splice(this.enemies.indexOf(en), 1);
+            //     }
+            // }
+            let enemy = new Enemy(x, y);
+            enemy.onOutOfScreen = this.enemyOutOfScreenHandler.bind(this);
+            this.enemies.push(enemy);
+
+            this.enmGenSpeed = Math.floor(Math.random() * (60 - 300 + 1)) + 30;
+            {
+                let min = Math.ceil(30);
+                let max = Math.floor(60);
+                let ran = Math.floor(Math.random() * (max - min + 1)) + min;
+                console.log(ran);
+            }
+            this.enmGenSpeed = ran;
+        }
+
+
+
+
 
     }
     draw() {
         this.bg.draw(this.ctx);
         this.boy.draw(this.ctx);
-        this.enemy.draw(this.ctx);
+        for (let enemy of this.enemies) {
+            enemy.draw(this.ctx);
+        }
 
     }
 
@@ -120,6 +175,13 @@ export default class GameCanvas {
         }
     }
 
+    enemyOutOfScreenHandler(en) {
+        let idx = this.enemies.indexOf(en);
+        console.log(idx);
+        this.enemies.splice(idx, 1);
+    }
 }
+
+
 
 // export default GameCanvas;
