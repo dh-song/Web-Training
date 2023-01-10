@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header></header>
+    <section>
+        <h1>회원가입</h1>
+        <form action="signup">
+            <fieldset>
+                <legend>회원가입정보</legend>
+            <div>
+            <label>아이디
+                <input name="uid" required placeholder="영문" autofocus autocomplete="off"></label>
+                <output>유효한 아이디</output>
+            </div>
+            <div>
+                <label>나이
+                    <input name="uid" required type="number" min="10" max="100"></label>
+                    <output>유효한 아이디</output>
+                </div>
+            <div>
+            <label for="email" >이메일</label>
+                <input name="email" type="email">
+                <output>유효한 아이디</output>
+            </div>
+            <div>
+                <label for="phone" >전화번호</label>
+                    <input name="phone" placeholder="010-xxxx-xxxx" pattern="01[01679]-\d{3,4}-\d{4}">
+                    <output>유효한 아이디</output>
+                </div>
+            <div></div>
+            <label>비밀번호
+                <input name="pwd"></label>
+                <output>유효한 아이디</output>
+            </div>
+            <div>
+            <label>비밀번호 확인
+                <input></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>가장 좋아하는 취미</legend>
+            <input type="radio" id="rd" name="hb" value="독서">
+            <label for="rd">독서</label>
+            <input type="radio" id="cm" name="hb" value="등산">
+            <label for="cm">등산</label>
+            <input type="radio" id="sc" name="hb" value="축구시청">
+            <label for="sc">축구시청</label>
+            <select name="chb">
+            <option value="1">독서</option>
+            <option value="2">등산</option>
+            <option value="3">축구시청</option>
+            </select>
+            <input type="text" name="hb2" list="hb2-list">
+            <datalist id="hb2-list">
+                <option value="여행"></option>
+                <option value="여행2"></option>
+                <option value="여행3"></option>
+                <option value="여행4"></option>
+            </datalist>
+        </fieldset>
+
+        <fieldset>
+            <legend>HTML5 추가</legend>
+            <label for="rd">가입일</label>
+            <input type="date" id="rd" name="hb" value="독서">
+            <label for="cm">색상</label>
+            <input type="color" id="cm" name="hb" value="등산">
+            <label for="sc">볼륨</label>
+            <input type="range" min="0" max="100" value="축구시청">
+
+
+        </fieldset>
+
+        <fieldset>
+            <legend>가장 좋아하는 취미</legend>
+            <input type="checkbox" id="rd" name="hb" value="독서">
+            <label for="rd">독서</label>
+            <input type="checkbox" id="cm" name="hb" value="등산">
+            <label for="cm">등산</label>
+            <input type="checkbox" id="sc" name="hb" value="축구시청">
+            <label for="sc">축구시청</label>
+            <select multiple name="chb">
+                <option value="1">독서</option>
+                <option value="2">등산</option>
+                <option value="3">축구시청</option>
+            </select>
+        </fieldset>
+        <div>
+            <input type="submit" value="가입">
+            <input type="button" value="가입">
+            <button><img src="">회원가입</button>
+        </div>
+        </form>
+
+</body>
+
+</html>
