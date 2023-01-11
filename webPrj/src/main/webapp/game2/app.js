@@ -1,10 +1,12 @@
 import GameCanvas from "./panel/game-canvas.js";
+import newlec from "./newlec.js";
 
 window.addEventListener("load", function () {
 
 
     const gameCanvas = new GameCanvas();
     gameCanvas.run();
+
 
     // gameCanvas.pause1();
 
@@ -24,9 +26,9 @@ window.addEventListener("load", function () {
     // }
     // var img = this.document.querySelector("img");
     // console.log(canvas);
-  
 
-    
+
+
 
 
     // var img = new Image();

@@ -1,6 +1,7 @@
 import Boy from "../item/boy.js";
 import Background from "../item/background.js";
 import Enemy from "../item/enemy.js";
+import newlec from "../newlec.js";
 
 export default class GameCanvas {
 
@@ -11,6 +12,9 @@ export default class GameCanvas {
         this.ctx = this.dom.getContext("2d");
         this.boy = new Boy(100, 100);
 
+        newlec.x++;
+        console.log("x: "+ newlec.x);
+
         this.enemies = [];
         this.enmGenSpeed = 60;
         // this.enemies = [new Enemy(100, 20), new Enemy(150, 30),
@@ -18,6 +22,8 @@ export default class GameCanvas {
         // new Enemy(400, 80), new Enemy(450, 90), new Enemy(500, 100), new Enemy(550, 110), ];
 
         this.bg = new Background();
+
+        newlec.enemies = this.enemies;
 
         // 콜백 함수
         // for (let enemy of this.enemies) {
