@@ -2,6 +2,7 @@ import Boy from "../item/boy.js";
 import Background from "../item/background.js";
 import Enemy from "../item/enemy.js";
 import newlec from "../newlec.js";
+import confirmDlg from "../item/confirmDlg.js"
 
 export default class GameCanvas {
 
@@ -11,6 +12,13 @@ export default class GameCanvas {
         /** @type {CanvasRenderingContext2D}*/
         this.ctx = this.dom.getContext("2d");
         this.boy = new Boy(100, 100);
+        this.boy.onNoLife = this.boyNoLifeHandler.bind(this);
+
+        this.dlg = new confirmDlg();
+        this.dlg.onclick = ()=>{
+            console.log("clicked");
+        }
+        this.dlg.show();
 
         newlec.x++;
         console.log("x: "+ newlec.x);
@@ -75,7 +83,7 @@ export default class GameCanvas {
         for (let enemy of this.enemies) {
             enemy.update();
         }
-
+        
         this.enmGenSpeed--;
         // this.boy.move(2);
 
@@ -107,7 +115,7 @@ export default class GameCanvas {
             this.enmGenSpeed = ran;
         }
 
-
+        this.dlg.update();
 
 
 
@@ -118,6 +126,7 @@ export default class GameCanvas {
         for (let enemy of this.enemies) {
             enemy.draw(this.ctx);
         }
+        this.dlg.draw(this.ctx);
 
     }
 
@@ -128,6 +137,14 @@ export default class GameCanvas {
     //---------event handlers------------------
     clickHandler(e) {
         // this.pause = true;
+
+        // this.boy.notifyClick(e.x, e.y);
+        // for (let enemy of this.enemies) {
+        //     enemy.notifyClick(e.x, e.y);
+        // }
+        // this.dlg.notifyClick(e.x, e.y);
+
+
 
         this.boy.moveTo(e.x, e.y);
         // this.boy.move(2);
@@ -185,6 +202,10 @@ export default class GameCanvas {
         let idx = this.enemies.indexOf(en);
         console.log(idx);
         this.enemies.splice(idx, 1);
+    }
+
+    boyNoLifeHandler(){
+        
     }
 }
 

@@ -23,7 +23,6 @@ export default class Boy {
 
         this.#speed = 1;
 
-
         // this.fx = 0;
 
         // -----------------------이미지 그리기 변수
@@ -52,10 +51,10 @@ export default class Boy {
 
         ctx.drawImage(this.img,
             this.sx, this.sy, this.sw, this.sh,
-            this.x - this.sw / 4, (this.y - this.sh) + (this.sh/2), this.sw / 2, this.sh / 2);
+            this.x - this.sw / 2, (this.y - this.sh) + (this.sh/2), this.sw / 2, this.sh / 2);
 
             ctx.beginPath();
-            ctx.arc(this.x, this.y,((this.img.width/3)/2)/2, 0, 2 * Math.PI);
+            ctx.arc(this.x - (this.img.width/3)/2/2, this.y-(this.img.height/4)/2/2,(this.img.width/3)/2/2, 0, 2 * Math.PI);
             ctx.stroke();
 
         // var img = new Image();
@@ -83,6 +82,11 @@ export default class Boy {
 
             if (d <= r1r2 ) {
                 console.log("충돌");
+                enemy.hit();
+
+                if (this.onNoLife) {
+                    this.onNoLife();
+                }
             }
     }
         console.log(newlec.enemies.length);

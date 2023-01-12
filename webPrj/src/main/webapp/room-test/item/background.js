@@ -6,6 +6,6 @@ export default class Background1{
     }
 
     draw(ctx){
-        ctx.drawImage(this.img,this.x,this.y,1000,1000);
+        ctx.drawImage(this.img,this.x,this.y,640,800);
     }
 }

@@ -12,8 +12,8 @@ export default class Boy {
         this.img = document.querySelector("#boy");
         this.ix = 1;
         this.iy = 2;
-        this.sw = 106;
-        this.sh = 148.25;
+        this.sw = this.img.width/3;
+        this.sh = this.img.height/4;
         this.sx = this.sw * this.ix;
         this.sy = this.sh * this.iy;
 
@@ -30,7 +30,7 @@ export default class Boy {
         this.sy = this.sh * this.iy;
         ctx.drawImage(this.img,
             this.sx, this.sy, this.sw, this.sh,
-            this.x, this.y, this.sw, this.sh);
+            this.x - this.sw/2, this.y + this.sh, this.sw*2, this.sh*2);
     }
 
     update() {
