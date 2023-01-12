@@ -24,15 +24,18 @@ export default class GameCanvas {
         }.bind(this), 5)
     }
 
-    update() {
-        this.puzzle.update();
-    }
-
     draw() {
         this.background.draw(this.ctx);
         this.puzzle.draw(this.ctx);
     }
+
+    update() {
+        this.puzzle.update();
+    }
+
+    
     clickHandler(e) {
+        console.log("x: "+e.x+"  y: "+e.y);
         this.puzzle.move(e.x, e.y);
     }
 
