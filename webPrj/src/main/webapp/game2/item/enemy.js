@@ -64,7 +64,8 @@ export default class Enemy {
         if (this.eIx >= 4) {
             this.eIy++;
             if (this.eIy >= 4 && this.eIx >=2 ) {
-                this.y=650;
+                
+                this.onOutOfScreen(this);
             }
             this.eIx = 0;
         }

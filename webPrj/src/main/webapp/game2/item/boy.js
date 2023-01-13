@@ -23,6 +23,8 @@ export default class Boy {
 
         this.#speed = 1;
 
+        this.nolife = false;
+
         // this.fx = 0;
 
         // -----------------------이미지 그리기 변수
@@ -84,9 +86,9 @@ export default class Boy {
                 console.log("충돌");
                 enemy.hit();
 
-                if (this.onNoLife) {
+                if (this.onNoLife && !(this.nolife)) {
                     this.onNoLife();
-                }
+                    this.nolife = true;                }
             }
     }
         console.log(newlec.enemies.length);

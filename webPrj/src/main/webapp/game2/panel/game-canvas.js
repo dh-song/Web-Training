@@ -15,16 +15,17 @@ export default class GameCanvas {
         this.boy.onNoLife = this.boyNoLifeHandler.bind(this);
 
         this.dlg = new confirmDlg();
-        this.dlg.onclick = ()=>{
-            console.log("clicked");
-        }
-        this.dlg.show();
+        // this.dlg.onclick = (id)=>{
+        //     console.log("clicked: "+id);
+        // }
+        this.dlg.onclick = this.dlgClickHandler.bind(this);
+        // this.dlg.show();
 
         newlec.x++;
         console.log("x: "+ newlec.x);
 
         this.enemies = [];
-        this.enmGenSpeed = 60;
+        this.enmGenSpeed = 40;
         // this.enemies = [new Enemy(100, 20), new Enemy(150, 30),
         // new Enemy(200, 40), new Enemy(250, 50), new Enemy(300, 60), new Enemy(350, 70),
         // new Enemy(400, 80), new Enemy(450, 90), new Enemy(500, 100), new Enemy(550, 110), ];
@@ -47,6 +48,9 @@ export default class GameCanvas {
 
         this.boy.Speed++; //get, set 띄어쓰기 후 속성처럼 사용.
         // this.boy.setSpeed(this.boy.getSpeed()+0); // #비공개로 getter, setter 이용
+
+        this.ongameOver = null;
+
 
         this.dom.onclick = this.clickHandler.bind(this); //bind가 없으면 main 캔버스
         this.dom.onkeydown = this.keyDownHandler.bind(this);
@@ -134,6 +138,12 @@ export default class GameCanvas {
         this.pause = true;
     }
 
+    dlgClickHandler(id){
+        if (this.ongameOver) {
+            this.ongameOver();
+        }
+    }
+
     //---------event handlers------------------
     clickHandler(e) {
         // this.pause = true;
@@ -142,7 +152,7 @@ export default class GameCanvas {
         // for (let enemy of this.enemies) {
         //     enemy.notifyClick(e.x, e.y);
         // }
-        // this.dlg.notifyClick(e.x, e.y);
+        this.dlg.notifyClick(e.x, e.y);
 
 
 
@@ -205,6 +215,9 @@ export default class GameCanvas {
     }
 
     boyNoLifeHandler(){
+        if (!(this.dlg.show())) {
+            this.dlg.show();    
+        }
         
     }
 }

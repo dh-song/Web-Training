@@ -127,3 +127,4 @@ let list = [
 list.forEach((n)=>{});
 let ar = list.map((n)=>{return `<span>${n.title}</span>`});
 console.log(ar);
+

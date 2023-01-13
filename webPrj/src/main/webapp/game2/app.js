@@ -6,8 +6,14 @@ window.addEventListener("load", function () {
 
 
     const gameCanvas = new GameCanvas();
+    gameCanvas.ongameOver = (e) => {
+        gameCanvas.pause = true;
+        gameCanvas.dom.classList.add("d-none");
+        rankCanvas.dom.classList.remove("d-none");
+    }
     gameCanvas.run();
     const rankCanvas = new RankCanvas();
+    
     rankCanvas.run();
 
 

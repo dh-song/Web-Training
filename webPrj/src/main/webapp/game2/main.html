@@ -11,7 +11,14 @@
 <script src="./panel/game-canvas.js"></script> -->
 <script type="module" src="app.js"></script>
 
-
+<style>
+    body{
+        margin: 0;
+    }
+    .d-none{
+        display: none;
+    }
+</style>
 
 </head>
 <body>
@@ -23,7 +30,7 @@
     <img src="./image/2.png" id="flame" style="display: none;">
     <canvas tabindex="0" class="game-canvas" width="700" height="700">
     </canvas>
-    <canvas tabindex="1" class="rank-canvas" width="700" height="700">
+    <canvas tabindex="1" class="rank-canvas d-none" width="700" height="700">
     </canvas>
 </body>
 </html>

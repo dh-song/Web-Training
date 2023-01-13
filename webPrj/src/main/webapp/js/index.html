@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
     <button onclick="ht()">시간확인</button>
@@ -21,56 +23,79 @@
         //         alert("yes");
         //     }       
         // }
-        
-//         let obj = {a:"1", b:"20", c:"3", d:"5"};
-//         for (const key in obj) {
-//             if (obj[key] >= 1 && obj[key] <= 10) {
-//                 console.log(obj[key]);
-                
-//             }
-//         }
 
-//         let user = {"name":"abs", "age":"25", "addr":"경기 수원"};
-//         console.log(user.addr);
+        //         let obj = {a:"1", b:"20", c:"3", d:"5"};
+        //         for (const key in obj) {
+        //             if (obj[key] >= 1 && obj[key] <= 10) {
+        //                 console.log(obj[key]);
 
-//         let obj2 = [
-//         {"sgg_cd":"1111000000","emd_nm":"경운동","node_code":"0","emd_cd":"1111013400","node_wkt":"POINT(126.98515892357797 37.57622646659184)","sgg_nm":"종로구","type":"NODE","sw_nm":"안국","sw_cd":"269","node_id":211632},
-// {"sgg_cd":"1111000000","emd_nm":"묘동","node_code":"1","emd_cd":"1111015100","node_wkt":"POINT(126.99189784557106 37.57254045459208)","sgg_nm":"종로구","type":"NODE","sw_nm":null,"sw_cd":null,"node_id":135561},
-// {"sgg_cd":"1111000000","emd_nm":"돈의동","node_code":"1","emd_cd":"1111015300","node_wkt":"POINT(126.99104038125857 37.572655707708435)","sgg_nm":"종로구","type":"NODE","sw_nm":null,"sw_cd":null,"node_id":135567},
-// {"sgg_cd":"1111000000","emd_nm":"숭인동","node_code":"0","emd_cd":"1111017500","node_wkt":"POINT(127.01551499790813 37.57951303710329)","sgg_nm":"종로구","type":"NODE","sw_nm":"창신","sw_cd":"270","node_id":212418},
-// {"sgg_cd":"1111000000","emd_nm":"돈의동","node_code":"1","emd_cd":"1111015300","node_wkt":"POINT(126.9910817909188 37.572526275551105)","sgg_nm":"종로구","type":"NODE","sw_nm":null,"sw_cd":null,"node_id":135572},
-// {"sgg_cd":"1111000000","emd_nm":"묘동","node_code":"1","emd_cd":"1111015100","node_wkt":"POINT(126.99215227845464 37.57106843929747)","sgg_nm":"종로구","type":"NODE","sw_nm":null,"sw_cd":null,"node_id":135627}
-//         ]
-//         for (let i in obj2) {
-//             console.log(obj2[i].node_id);
-//             console.log(obj2[i]["emd_nm"]);
-            
-//         }
-//         for (let v of obj2){
-//             console.log(v.sgg_nm);
-//             console.log(v["node_code"]);
-//         }
-function ht(){
-        var date = new Date();
-        var h = date.getHours();
-        console.log(h);
-        if (h >= 12 && h <= 23) {
-            alert("오후");
-        } else {
-            alert("오전");
+        //             }
+        //         }
+
+        //         let user = {"name":"abs", "age":"25", "addr":"경기 수원"};
+        //         console.log(user.addr);
+
+        //         let obj2 = [
+        //         {"sgg_cd":"1111000000","emd_nm":"경운동","node_code":"0","emd_cd":"1111013400","node_wkt":"POINT(126.98515892357797 37.57622646659184)","sgg_nm":"종로구","type":"NODE","sw_nm":"안국","sw_cd":"269","node_id":211632},
+        // {"sgg_cd":"1111000000","emd_nm":"묘동","node_code":"1","emd_cd":"1111015100","node_wkt":"POINT(126.99189784557106 37.57254045459208)","sgg_nm":"종로구","type":"NODE","sw_nm":null,"sw_cd":null,"node_id":135561},
+        // {"sgg_cd":"1111000000","emd_nm":"돈의동","node_code":"1","emd_cd":"1111015300","node_wkt":"POINT(126.99104038125857 37.572655707708435)","sgg_nm":"종로구","type":"NODE","sw_nm":null,"sw_cd":null,"node_id":135567},
+        // {"sgg_cd":"1111000000","emd_nm":"숭인동","node_code":"0","emd_cd":"1111017500","node_wkt":"POINT(127.01551499790813 37.57951303710329)","sgg_nm":"종로구","type":"NODE","sw_nm":"창신","sw_cd":"270","node_id":212418},
+        // {"sgg_cd":"1111000000","emd_nm":"돈의동","node_code":"1","emd_cd":"1111015300","node_wkt":"POINT(126.9910817909188 37.572526275551105)","sgg_nm":"종로구","type":"NODE","sw_nm":null,"sw_cd":null,"node_id":135572},
+        // {"sgg_cd":"1111000000","emd_nm":"묘동","node_code":"1","emd_cd":"1111015100","node_wkt":"POINT(126.99215227845464 37.57106843929747)","sgg_nm":"종로구","type":"NODE","sw_nm":null,"sw_cd":null,"node_id":135627}
+        //         ]
+        //         for (let i in obj2) {
+        //             console.log(obj2[i].node_id);
+        //             console.log(obj2[i]["emd_nm"]);
+
+        //         }
+        //         for (let v of obj2){
+        //             console.log(v.sgg_nm);
+        //             console.log(v["node_code"]);
+        //         }
+        function ht() {
+            var date = new Date();
+            var h = date.getHours();
+            console.log(h);
+            if (h >= 12 && h <= 23) {
+                alert("오후");
+            } else {
+                alert("오전");
+            }
         }
-    }
-    var input = Number(prompt("",));       
+        // var input = Number(prompt("",));       
 
-    // if () {
-        
-    // } else {
-        
-    // }
-    
-    
+        // if () {
+
+        // } else {
+
+        // }
+        let list = [[[{ x: 0, y: 0 }], [{ x: 1, y: 0 }], [{ x: 2, y: 0 }]],
+        [[{ x: 0, y: 1 }], [{ x: 1, y: 1 }], [{ x: 2, y: 1 }]],
+        [[{ x: 0, y: 2 }], [{ x: 1, y: 2 }], [{ x: 2, y: 2 }]],
+        [[null]]];
+
+        let pzXY = [{ sx: 0, sy: 0, id: 1 }, { sx: 200, sy: 0, id: 2 }, { sx: 400, sy: 0, id: 3 },
+        { sx: 0, sy: 200, id: 4 }, { sx: 200, sy: 200, id: 5 }, { sx: 400, sy: 200, id: 6 },
+        { sx: 0, sy: 400, id: 7 }, { sx: 200, sy: 400, id: 8 }, { id: 10 },
+        { sx: 400, sy: 400, id: 9 }];
+
+
+        console.log(pzXY);
+        // let xy = pzXY.splice(9,1);
+        a = pzXY.splice(8, 1);
+        console.log(a[0]);
+        pzXY.splice(9, 0, a[0]);
+
+        pzXY.sort(() => Math.random() - 0.5);
+
+        // console.log(pzXY);
+
+
+
+
 
     </script>
-    
+
 </body>
+
 </html>
