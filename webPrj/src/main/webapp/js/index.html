@@ -80,15 +80,20 @@
         { sx: 400, sy: 400, id: 9 }];
 
 
-        console.log(pzXY);
-        // let xy = pzXY.splice(9,1);
-        a = pzXY.splice(8, 1);
-        console.log(a[0]);
-        pzXY.splice(9, 0, a[0]);
+        let tmp;
+        tmp = pzXY[1];
+        pzXY[1] = pzXY[9];
+        pzXY[9] = tmp;
 
-        pzXY.sort(() => Math.random() - 0.5);
+        console.log(pzXY);
+        // a = pzXY.splice(8, 1);
+        // console.log(a[0]);
+        // pzXY.splice(9, 0, a[0]);
+
+        // pzXY.sort(() => Math.random() - 0.5);
 
         // console.log(pzXY);
+
 
 
 

@@ -1,26 +1,32 @@
 export default class Puzzle {
-    #speed; // private 대신 모든 변수명에 #추가
+
     constructor(x, y) {
 
-
-        this.x = x || 20; //값이 없으면 100
+        this.clearPz = false;
+        this.x = x || 20; 
         this.y = y || 10;
 
-        this.pzXY = [{ sx: 0, sy: 0, idx: 0 }, { sx: 200, sy: 0, idx: 1 }, { sx: 400, sy: 0, idx: 2 },
-        { sx: 0, sy: 200, idx: 3 }, { sx: 200, sy: 200, idx: 4 }, { sx: 400, sy: 200, idx: 5 },
-        { sx: 0, sy: 400, idx: 6 }, { sx: 200, sy: 400, idx: 7 }];
-    
-        // , { id: 10 }, { sx: 400, sy: 400, id: 9 }
-        // -------------
-        // 셔플 후 담기
-        this.pzXY.sort(() => Math.random() - 0.5);
+        // 기본 배열
+        // this.pzXY = [{ sx: 0, sy: 0, idx: 0 }, { sx: 200, sy: 0, idx: 1 }, { sx: 400, sy: 0, idx: 2 },
+        // { sx: 0, sy: 200, idx: 3 }, { sx: 200, sy: 200, idx: 4 }, { sx: 400, sy: 200, idx: 5 },
+        // { sx: 0, sy: 400, idx: 6 }, { sx: 200, sy: 400, idx: 7 }];
+
+        //수동 셔플 배열, 직접 해보고 클리어 가능 확인 함
+        this.pzXY = [{ sx: 0, sy: 400, idx: 6 },{ sx: 200, sy: 200, idx: 4 },{ sx: 0, sy: 200, idx: 3 },
+            { sx: 200, sy: 0, idx: 1 },{ sx: 200, sy: 400, idx: 7 }, { sx: 0, sy: 0, idx: 0 }, 
+             { sx: 400, sy: 200, idx: 5 }, { sx: 400, sy: 0, idx: 2 }
+             ];
+
+
+        // 자동 셔플 후 담기 / 셔플 클리어 조건 확실하지 않아서 일단 셔플 빼고 임의로 고정
+        // this.pzXY.sort(() => Math.random() - 0.5);
+
         this.pzTmp1 = { idx: 9 };
         this.pzTmp2 = { sx: 400, sy: 400, idx: 8 };
-        
-        this.pzXY.splice(8,0,this.pzTmp1);
-        this.pzXY.splice(9,0,this.pzTmp2);
 
-        // splice(this.pzXY)
+        this.pzXY.splice(8, 0, this.pzTmp1);
+        this.pzXY.splice(9, 0, this.pzTmp2);
+
 
         this.cI = 0;
 
@@ -42,6 +48,11 @@ export default class Puzzle {
 
 
     draw(ctx) {
+
+        if (this.clearPz) {
+            ctx.drawImage(this.img,this.x, this.y);
+            return;
+        }
 
         for (let i = 0, pzI = 0; i < 3; i++) {
             this.iy = i;
@@ -73,95 +84,94 @@ export default class Puzzle {
             switch (this.cI) {
                 case 0:
                     if (this.pzXY[1].idx == 9) {
-                        
-                    } else if (this.pzXY[4].idx ==9) {
-                        
+                        this.switchArray(0,1);
+                    } else if (this.pzXY[3].idx == 9) {
+                        this.switchArray(0,3);
                     }
                     break;
                 case 1:
                     if (this.pzXY[0].idx == 9) {
-                        
-                    } else if (this.pzXY[2].idx ==9) {
-                        
-                    } else if (this.pzXY[4].idx ==9) {
-                        
+                        this.switchArray(1,0);
+                    } else if (this.pzXY[2].idx == 9) {
+                        this.switchArray(1,2);
+                    } else if (this.pzXY[4].idx == 9) {
+                        this.switchArray(1,4);
                     }
 
                     break;
                 case 2:
                     if (this.pzXY[1].idx == 9) {
-                        
-                    } else if (this.pzXY[5].idx ==9) {
-                        
+                        this.switchArray(2,1);
+                    } else if (this.pzXY[5].idx == 9) {
+                        this.switchArray(2,5);
                     }
 
                     break;
                 case 3:
                     if (this.pzXY[0].idx == 9) {
-                        
-                    } else if (this.pzXY[4].idx ==9) {
-                        
-                    } else if (this.pzXY[6].idx ==9) {
-                        
+                        this.switchArray(3,0);
+                    } else if (this.pzXY[4].idx == 9) {
+                        this.switchArray(3,4);
+                    } else if (this.pzXY[6].idx == 9) {
+                        this.switchArray(3,6);
                     }
 
                     break;
                 case 4:
-                    if (this.pzXY[1].idx == 10) {
-                        
-                    } else if (this.pzXY[3].idx ==9) {
-                     
-                    } else if (this.pzXY[5].idx ==9) {
-                     
-                    } else if (this.pzXY[7].idx ==9) {
-                     
+                    if (this.pzXY[1].idx == 9) {
+                        this.switchArray(4,1);
+                    } else if (this.pzXY[3].idx == 9) {
+                        this.switchArray(4,3);
+                    } else if (this.pzXY[5].idx == 9) {
+                        this.switchArray(4,5);
+                    } else if (this.pzXY[7].idx == 9) {
+                        this.switchArray(4,7);
                     }
                     break;
                 case 5:
                     if (this.pzXY[2].idx == 9) {
-                        
-                    } else if (this.pzXY[4].idx ==9) {
-                     
-                    } else if (this.pzXY[8].idx ==9) {
-                     
+                        this.switchArray(5,2);
+                    } else if (this.pzXY[4].idx == 9) {
+                        this.switchArray(5,4);
+                    } else if (this.pzXY[8].idx == 9) {
+                        this.switchArray(5,8);
                     }
 
                     break;
                 case 6:
-                    if (this.pzXY[3].idx == 10) {
-                        
-                    } else if (this.pzXY[7].idx ==9) {
-                     
+                    if (this.pzXY[3].idx == 9) {
+                        this.switchArray(6,3);
+                    } else if (this.pzXY[7].idx == 9) {
+                        this.switchArray(6,7);
                     }
 
                     break;
                 case 7:
                     if (this.pzXY[4].idx == 9) {
-                        
-                    } else if (this.pzXY[6].idx ==9) {
-                     
-                    } else if (this.pzXY[8].idx ==9) {
-                     
+                        this.switchArray(7,4);
+                    } else if (this.pzXY[6].idx == 9) {
+                        this.switchArray(7,6);
+                    } else if (this.pzXY[8].idx == 9) {
+                        this.switchArray(7,8);
                     }
                     break;
                 case 8:
                     if (this.pzXY[5].idx == 9) {
-                        
-                    } else if (this.pzXY[7].idx ==9) {
-                     
-                    } else if (this.pzXY[9].idx ==9) {
-                        let tmp = this.pzXY.splice(9,1);
-                        console.log(tmp[0]);
-                        this.pzXY.splice(8,0,tmp[0]);
+                        this.switchArray(8,5);
+                    } else if (this.pzXY[7].idx == 9) {
+                        this.switchArray(8,7);
+                    } else if (this.pzXY[9].idx == 9) {
+                        this.switchArray(8,9);
                     }
                     break;
                 case 9:
                     if (this.pzXY[8].idx == 9) {
-                        let tmp = this.pzXY.splice(8,1);
-                        console.log(tmp[0]);
-                        this.pzXY.splice(9,0,tmp[0]);
+                        // splice 연습
+                        // let tmp = this.pzXY.splice(9,1);
+                        // this.pzXY.splice(8,0,tmp[0]);
                         // console.log(this.pzXY);
-                        
+                        this.switchArray(9,8);
+
                     }
                     break;
 
@@ -170,11 +180,15 @@ export default class Puzzle {
             }
         }
         // --------------- 완료 검사
-        // for (let i = 0; i < array.length; i++) {
-        //     if (!(this.pzXY[i].idx == i)) {
-                
-        //     }
-        // }
+        for (let i = 0; i < this.pzXY.length; i++) {
+            if (!(this.pzXY[i].idx == i)) {
+                this.clearPz = false;
+                this.img = document.querySelector("#ict");
+                    break;
+            }
+            this.clearPz = true;
+            this.img = document.querySelector("#ict2");
+        }
     };
 
 
@@ -213,4 +227,11 @@ export default class Puzzle {
 
 
     }
+    switchArray(cIdx, pIdx) {
+        let tmp;
+        tmp = this.pzXY[cIdx];
+        this.pzXY[cIdx] = this.pzXY[pIdx];
+        this.pzXY[pIdx] = tmp;
+    }
+
 };

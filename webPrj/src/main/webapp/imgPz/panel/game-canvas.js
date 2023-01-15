@@ -8,15 +8,18 @@ export default class GameCanvas {
         /** @type {CanvasRenderingContext2D} */
         this.ctx = this.dom.getContext("2d");
         this.puzzle = new puzzle();
-        // this.boy = new Boy(100, 100);
         this.background = new Background(0, 0);
+        this.introTextBox = true;
+        this.endTextBox = false;
 
         this.dom.onclick = this.clickHandler.bind(this);
+        this.dom.onkeydown = this.keyDownHandler.bind(this);
 
     }
     run() {
         this.update();
         this.draw();
+        
 
         window.setTimeout(function () {
             this.run();
@@ -30,13 +33,17 @@ export default class GameCanvas {
     }
 
     update() {
+        if (!this.puzzle.clearPz) { // 퍼즐 클리어 시 무효
         this.puzzle.update();
+        }
     }
 
     
     clickHandler(e) {
-        console.log("x: "+e.x+"  y: "+e.y);
-        this.puzzle.move(e.x, e.y);
+        if (!this.puzzle.clearPz) { // 퍼즐 클리어 시 무효
+            console.log("x: "+e.x+"  y: "+e.y);
+            this.puzzle.move(e.x, e.y);    
+        }
+        
     }
-
 }
