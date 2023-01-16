@@ -33,7 +33,7 @@ export default class confirmDlg {
         && (this.y < y && y < this.y + this.height)){
             console.log("클릭");
             if (this.onclick) {
-                this.onclick(3); //1qled,ais dlg, 2는 yes,3은 no
+                this.onclick(3); //1번은 dlg, 2는 yes,3은 no
             }
         }
     }

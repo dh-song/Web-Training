@@ -9,12 +9,12 @@ export default class GameCanvas {
         this.ctx = this.dom.getContext("2d");
         this.puzzle = new puzzle();
         this.background = new Background(0, 0);
-        this.introTextBox = true;
-        this.endTextBox = false;
 
         this.dom.onclick = this.clickHandler.bind(this);
-        this.dom.onkeydown = this.keyDownHandler.bind(this);
 
+
+
+        //추가 필요 사항 - 시작과 끝 텍스트박스?
     }
     run() {
         this.update();
@@ -30,6 +30,7 @@ export default class GameCanvas {
     draw() {
         this.background.draw(this.ctx);
         this.puzzle.draw(this.ctx);
+        this.puzzle.drawScore(this.ctx);
     }
 
     update() {
@@ -42,7 +43,7 @@ export default class GameCanvas {
     clickHandler(e) {
         if (!this.puzzle.clearPz) { // 퍼즐 클리어 시 무효
             console.log("x: "+e.x+"  y: "+e.y);
-            this.puzzle.move(e.x, e.y);    
+            this.puzzle.move(e.x, e.y);
         }
         
     }
