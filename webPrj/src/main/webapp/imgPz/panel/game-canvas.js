@@ -1,5 +1,6 @@
 import puzzle from "../item/puzzle.js";
 import Background from "../item/background.js";
+import Text from "../item/text.js";
 
 export default class GameCanvas {
     constructor() {
@@ -9,16 +10,18 @@ export default class GameCanvas {
         this.ctx = this.dom.getContext("2d");
         this.puzzle = new puzzle();
         this.background = new Background(0, 0);
+        this.text = new Text();
 
         this.dom.onclick = this.clickHandler.bind(this);
+        this.dom.onkeydown = this.keyDownHandler.bind(this);
 
-
-
-        //추가 필요 사항 - 시작과 끝 텍스트박스?
+    
     }
     run() {
         this.update();
         this.draw();
+
+        
         
 
         window.setTimeout(function () {
@@ -31,7 +34,14 @@ export default class GameCanvas {
         this.background.draw(this.ctx);
         this.puzzle.draw(this.ctx);
         this.puzzle.drawScore(this.ctx);
+
+        // ----- 텍스트
+        if (this.text.needText) {
+            this.text.drawText(this.ctx);
+        }
+        
     }
+
 
     update() {
         if (!this.puzzle.clearPz) { // 퍼즐 클리어 시 무효
@@ -41,10 +51,15 @@ export default class GameCanvas {
 
     
     clickHandler(e) {
-        if (!this.puzzle.clearPz) { // 퍼즐 클리어 시 무효
+
+        if (!this.puzzle.clearPz && !this.text.needText) { // 퍼즐 클리어 시 무효
             console.log("x: "+e.x+"  y: "+e.y);
             this.puzzle.move(e.x, e.y);
         }
         
+    }
+
+    keyDownHandler(e){
+        this.text.update();
     }
 }
