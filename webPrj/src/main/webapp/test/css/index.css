@@ -1,9 +1,19 @@
 @import url(style.css);
+body{
+    margin: 0;
+}
 
-h1[lang="ko"]{
+.header{
+    background-color: #ff000099;
+    height: 50px;
+}
+
+.cafe{
+    height: 480px;
     color: aqua;
 }
 
-h1.cafe{
-    color: green;
+.rland{
+    height: 330px;
+    background-color:  bisque;
 }
