@@ -19,7 +19,7 @@ public class HelloServlet extends HttpServlet{
 		response.setCharacterEncoding("UTF-8"); // tf-8로 보냄
 		response.setContentType("text/html; charset=utf-8"); //utf-8로 읽으라 알려 줌
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String name = request.getParameter("name");
 		int c = Integer.parseInt(request.getParameter("c"));
 		

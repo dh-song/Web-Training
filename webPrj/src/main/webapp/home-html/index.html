@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="./css/index.css" type="text/css" rel="stylesheet"> -->
+    <style>
+        .loginDiv {
+            display: flex;
+            min-height: 100%;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .loginDiv2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+
+        }
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+        }
+        .join{
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section>
+    <div class="loginDiv">
+        <div class="loginDiv2">
+            <form action="" id="loginForm" method="post">
+                <fieldset>
+                <div><input type="text" name="id" id="id" placeholder="전화번호, 사용자 이름 또는 이메일"></div>
+                <div><input type="password" name="pw" id="pw" placeholder="비밀번호"></div>
+                <div><button type="submit">로그인</button></div>
+                <div>
+                    <p>---------------또는---------------</p>
+                </div>
+                <div>
+                    <a href="./reset.html">Facebook으로 로그인</a>
+                </div>
+                <div>
+                <a href="./reset.html">비밀번호를 잊으셨나요?</a>
+        </div>
+    </fieldset>
+        </form>
+        <fieldset class="join">
+        <div>
+            계정이 없으신가요?<a href="./join.html">가입하기</a>
+        </div>
+    </fieldset>
+    </div>
+    </div>
+</section>
+</body>
+
+</html>

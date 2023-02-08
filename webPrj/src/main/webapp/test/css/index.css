@@ -11,7 +11,18 @@ body{
 .cafe{
     height: 480px;
     color: aqua;
+    position: relative;
 }
+    .cafe-title{
+        
+        
+    }
+
+        .rland-location{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
 
 .rland{
     height: 330px;

@@ -1,0 +1,12 @@
+.loginDiv{
+    display: flex;
+    min-height: 100%;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+    .loginForm{
+        display: flex;
+        flex-direction: column;
+    }
