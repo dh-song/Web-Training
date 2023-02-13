@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/menu/list3")
+@WebServlet("/menu/listview")
 public class ListView extends HttpServlet {
 	
 //	private MenuService service;
@@ -33,52 +33,14 @@ public class ListView extends HttpServlet {
 		resp.setContentType("text/html; charset=utf-8"); //html 이면 out 태그로 인식
 		PrintWriter out = resp.getWriter();
 		
-		out.print("hello");
+		List<Menu> menus1 = (List<Menu>)req.getAttribute("menus");
+		out.print("hello");		
+		
 		
 //		Menu[] list = service.getList();
 //		int count = service.count();
 		
 		
-		String query = "";
-		String sql = String.format("select * from member where nicname like '%s'", "%"+query+"%") ;
-//		Menu[] menus = new Menu[100];
-//		GList<Menu> menus = new GList<Menu>();
-		List<Menu> menus1 = new ArrayList<>();
-		
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@oracle.newlecture.com:1521/xepdb1";
-			Connection con = DriverManager.getConnection(url, "NEWLEC", "rland");
-			
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(sql);
-
-			
-			// 필터링, 집계, 정렬
-			while(rs.next())	// 서버의 커서를 한칸 내리고 그 위치의 레코드를 옮겨 오는 것. -> 레코드 하나가 저장되는 공간은?
-			{
-				int id = rs.getInt("id");
-				String name = rs.getString("name");
-				String nicName = rs.getString("nicname");
-//				String format = String.format("id:%d, name:%s, nicname:%s\n" , id, name, nicName);
-//				System.out.println(format);
-//				out.print(format);
-				
-//				out.println("</tr>");
-//				out.println("</table>");\
-				Menu menu = new Menu(id, name, 1000, "");
-//				menus.add(menu);
-				menus1.add(menu);
-			}
-			con.close();
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		out.write("<!DOCTYPE html>");
 		out.write("<html>");
 		out.write("<head>");
@@ -102,6 +64,7 @@ public class ListView extends HttpServlet {
 //		out.write("	<td>5000</td>");				
 //		out.write("</tr>");	
 //		}
+		
 		for (int i = 0; i < menus1.size(); i++) {
 			Menu m = (Menu)menus1.get(i);
 		out.write("<tr>");	
@@ -114,6 +77,9 @@ public class ListView extends HttpServlet {
 		out.write("</table>");	
 		out.write("</body>");	
 		out.write("</html>");
+		
+		
+		
 		
 //		try {
 //		Class.forName("oracle.jdbc.driver.OracleDriver");

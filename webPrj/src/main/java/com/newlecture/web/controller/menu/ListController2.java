@@ -33,7 +33,7 @@ public class ListController2 extends HttpServlet {
 		resp.setContentType("text/html; charset=utf-8"); //html 이면 out 태그로 인식
 		PrintWriter out = resp.getWriter();
 		
-		out.print("hello");
+		out.print("hello !");
 		
 //		Menu[] list = service.getList();
 //		int count = service.count();
@@ -79,20 +79,27 @@ public class ListController2 extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		out.write("<!DOCTYPE html>");
-		out.write("<html>");
-		out.write("<head>");
-		out.write("<meta charset=\"UTF-8\">");
-		out.write("<title>Insert title here</title>");
-		out.write("</head>");
-		out.write("<body>");
-		out.write("<h1>메뉴 목록</h1>");
-		out.write("<table>");
-		out.write("	<tr>");
-		out.write("	<td>번호</td>");
-		out.write("<td>이름</td>");
-		out.write("<td>가격</td>");
-		out.write("</tr>");
+		
+
+//		resp.sendRedirect("listview");
+		System.out.println(menus1.toString());
+		req.setAttribute("menus", menus1);
+		req.getRequestDispatcher("listview").forward(req, resp);
+		
+//		out.write("<!DOCTYPE html>");
+//		out.write("<html>");
+//		out.write("<head>");
+//		out.write("<meta charset=\"UTF-8\">");
+//		out.write("<title>Insert title here</title>");
+//		out.write("</head>");
+//		out.write("<body>");
+//		out.write("<h1>메뉴 목록</h1>");
+//		out.write("<table>");
+//		out.write("	<tr>");
+//		out.write("	<td>번호</td>");
+//		out.write("<td>이름</td>");
+//		out.write("<td>가격</td>");
+//		out.write("</tr>");
 		
 //		for (int i = 0; i < menus.size(); i++) {
 //			Menu m = (Menu)menus.get(i);
@@ -102,18 +109,23 @@ public class ListController2 extends HttpServlet {
 //		out.write("	<td>5000</td>");				
 //		out.write("</tr>");	
 //		}
-		for (int i = 0; i < menus1.size(); i++) {
-			Menu m = (Menu)menus1.get(i);
-		out.write("<tr>");	
-		out.write("	<td>"+m.getId()+"</td>");	
-		out.write("	<td>"+m.getName()+"</td>");	
-		out.write("	<td>5000</td>");				
-		out.write("</tr>");	
-		}
 		
-		out.write("</table>");	
-		out.write("</body>");	
-		out.write("</html>");
+		
+//		for (int i = 0; i < menus1.size(); i++) {
+//			Menu m = (Menu)menus1.get(i);
+//		out.write("<tr>");	
+//		out.write("	<td>"+m.getId()+"</td>");	
+//		out.write("	<td>"+m.getName()+"</td>");	
+//		out.write("	<td>5000</td>");				
+//		out.write("</tr>");	
+//		}
+//		
+//		out.write("</table>");	
+//		out.write("</body>");	
+//		out.write("</html>");
+		
+		
+		
 		
 //		try {
 //		Class.forName("oracle.jdbc.driver.OracleDriver");
