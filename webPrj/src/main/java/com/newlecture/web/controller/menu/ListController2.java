@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.newlecture.web.entity.GList;
@@ -60,13 +61,15 @@ public class ListController2 extends HttpServlet {
 				int id = rs.getInt("id");
 				String name = rs.getString("name");
 				String nicName = rs.getString("nicname");
+				Date date = rs.getDate("reg_date");
+				String img = "pic1.png pic2.png pic3.png pic4.png";
 //				String format = String.format("id:%d, name:%s, nicname:%s\n" , id, name, nicName);
 //				System.out.println(format);
 //				out.print(format);
 				
 //				out.println("</tr>");
 //				out.println("</table>");\
-				Menu menu = new Menu(id, name, 1000, "");
+				Menu menu = new Menu(id, name, 1000, img, date);
 //				menus.add(menu);
 				menus1.add(menu);
 			}

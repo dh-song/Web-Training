@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <%!
@@ -27,6 +28,7 @@ List<Menu> menus = (List<Menu>)request.getAttribute("menus");
 			<td>번호</td>
 			<td>이름</td>
 			<td>가격</td>
+			<td>등록일</td>
 		</tr>
 		<%-- 
 		<% for(int i=0; i<10; i++){%>
@@ -41,7 +43,7 @@ List<Menu> menus = (List<Menu>)request.getAttribute("menus");
 		--%>
 		
 		
-		
+		<%-- 
 		<% for (int i = 0; i < menus.size(); i++) {
 			Menu m = menus.get(i);
 		 %>
@@ -51,8 +53,23 @@ List<Menu> menus = (List<Menu>)request.getAttribute("menus");
 		<td>50001</td>		
 		</tr>
 		<%};%>
-		<c:forEach var="i" begin="0" end="3">
-			<p><c:out value="${i}"></c:out></p>
+		--%>
+		<c:forEach items="${menus}" var="i">
+		<f:formatNumber var="price" value="${i.price}" pattern="#,###"/>
+		<f:formatDate var="date" value="${i.regDate}" pattern="yyyy.M.d / hh:mm"/>
+		<tr>
+		<td>${i.id}</td>
+		<td><c:out value="${i.name}"></c:out></td>
+		<td>${price}</td>
+		<td>${date}</td>
+		<tr>
+		<td colspan="4"> 
+		<c:forTokens var="img"  items="${i.img}" delims=" " varStatus="st">
+		<a download href="/${img}">${img}</a>
+		<c:if test="${!st.last}">|</c:if>
+		</c:forTokens>
+		</td>
+		</tr>
 		</c:forEach>
 		  
 		  
