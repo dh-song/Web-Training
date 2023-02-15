@@ -84,7 +84,7 @@ public class ListController2 extends HttpServlet {
 //		resp.sendRedirect("listview");
 		System.out.println(menus1.toString());
 		req.setAttribute("menus", menus1);
-		req.getRequestDispatcher("listview").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/menu/list.jsp").forward(req, resp);
 		
 //		out.write("<!DOCTYPE html>");
 //		out.write("<html>");
