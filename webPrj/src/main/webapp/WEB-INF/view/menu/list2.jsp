@@ -30,7 +30,30 @@ List<Menu> menus = (List<Menu>)request.getAttribute("menus");
 			<td>가격</td>
 			<td>등록일</td>
 		</tr>
-
+		<%-- 
+		<% for(int i=0; i<10; i++){%>
+		<tr>
+			<td>i=<%=i %></td>
+			<td>아메리카노</td>
+			<td><%out.print(i); %></td>
+			<td>x=<%=x %></td>
+			<td>y=<%=y %></td>
+		</tr>
+		<%}%>
+		--%>
+		
+		
+		<%-- 
+		<% for (int i = 0; i < menus.size(); i++) {
+			Menu m = menus.get(i);
+		 %>
+		<tr>	
+		<td><%=m.getId()%> </td>
+		<td><%=m.getName()%> </td>
+		<td>50001</td>		
+		</tr>
+		<%};%>
+		--%>
 		<c:forEach items="${menus}" var="i">
 		<f:formatNumber var="price" value="${i.price}" pattern="#,###"/>
 		<f:formatDate var="date" value="${i.regDate}" pattern="yyyy.M.d / hh:mm"/>
@@ -49,7 +72,18 @@ List<Menu> menus = (List<Menu>)request.getAttribute("menus");
 		</tr>
 		</c:forEach>
 		  
-
+		  
+<!-- 		<tr>
+			<td>2</td>
+			<td>카페라떼</td>
+			<td>5000</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>카푸치노</td>
+			<td>5000</td>
+		</tr>
+ -->
 	</table>
 </body>
 </html>

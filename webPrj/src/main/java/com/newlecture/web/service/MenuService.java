@@ -1,5 +1,11 @@
 package com.newlecture.web.service;
 
-public class MenuService {
+import java.util.List;
+
+import com.newlecture.web.entity.Menu;
+
+public interface MenuService {
+
+	List<Menu> getList();
 
 }
