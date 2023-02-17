@@ -1,0 +1,68 @@
+/****** sidebar ******/
+
+/* logo */
+.pc-side-bar .logo {
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* profile */
+.pc-side-bar .profile-wrap {
+	height: 170px;
+	border-top: 2px solid #EAEDF2;
+	border-bottom: 2px solid #EAEDF2;
+	box-sizing: border-box;
+}
+
+.pc-side-bar .profile-top {
+	height: 93px;
+	display: flex;
+	align-items: center;
+	padding: 25px 0 25px 40px;
+	box-sizing: border-box;
+}
+
+.pc-side-bar .profile-img {
+	width: 40px;
+	height: 40px;
+	padding-right: 10px;
+}
+
+.pc-side-bar .profile-bottom {
+	display: flex;
+	height: 75px;
+	align-items: center;
+	justify-content: space-around;
+	text-align: center;
+	border-top: 2px solid #EAEDF2;
+	box-sizing: border-box;
+}
+
+.pc-side-bar .profile-group {
+	width: 181px;
+	height: 100%;
+	border-right: 2px solid #EAEDF2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.pc-side-bar .profile-team {
+	width: 103px;
+}
+
+/* sidebar-inner (menu) */
+.pc-side-bar .sidebar-inner {
+	padding: 40px 0 0 40px;
+	box-sizing: border-box;
+}
+
+.pc-side-bar .sidebar-inner .menu-box:nth-child(2) {
+	margin-top: 67px;
+}
+
+.pc-side-bar .sidebar-inner li {
+	margin-top: 8px;
+}

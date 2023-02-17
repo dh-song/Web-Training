@@ -1,0 +1,10 @@
+.popup{
+    position: absolute;
+	width: 300px;
+	min-height: 100px;
+	background: #fff;
+	z-index: 10;
+}
+.popup-time{
+   padding-bottom: 20px;
+}

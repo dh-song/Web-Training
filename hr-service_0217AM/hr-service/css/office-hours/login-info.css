@@ -1,0 +1,57 @@
+
+.login-info {
+	width: 322px;
+	height: 155px;
+	background: rgba(217, 217, 217, 0.24);
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+.login-info .profile-hr {
+	/* border: solid #EAEDF2 1px; */
+	width: 237px;
+	margin: auto;
+}
+
+.login-info .login-info-top {
+	width: 322px;
+	display: flex;
+	align-items: center;
+	padding: 21px 0 21px 20px;
+	box-sizing: border-box;
+	height: 90px;
+	border-bottom: 1px solid #D9D9D9;
+}
+
+.login-info .login-info-bottom {
+	display: flex;
+	height: 65px;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.login-info .login-info-dept {
+	margin-left: 21px;
+}
+
+.login-info .login-info-team {
+	margin-right: 21px;
+}
+
+.login-info .login-info-bottom span {
+	font-size: 15px;
+}
+
+.login-info .login-info-img {
+	width: 48px;
+	height: 48px;
+	margin-right: 10px;
+}
+
+.login-info h1 {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 500;
+}
