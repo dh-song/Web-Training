@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.newlecture.web.entity.GList;
 import com.newlecture.web.entity.Menu;
 import com.newlecture.web.repository.MenuDao;
 

@@ -20,12 +20,12 @@ public class ListServlet extends HttpServlet{
 	
 	static {
 		list = new ArrayList<Menu>();
-		list.add(new Menu(1,"아메리카노",4000,""));
-		list.add(new Menu(2,"아이스 아메리카노",4500,""));
-		list.add(new Menu(3,"카페라떼",5000,""));
-		list.add(new Menu(4,"아이스 카페라떼",5500,""));
-		list.add(new Menu(5,"카페모카",5000,""));
-		list.add(new Menu(6,"아이스 카페모카",5500,""));
+//		list.add(new Menu(1,"아메리카노",4000,""));
+//		list.add(new Menu(2,"아이스 아메리카노",4500,""));
+//		list.add(new Menu(3,"카페라떼",5000,""));
+//		list.add(new Menu(4,"아이스 카페라떼",5500,""));
+//		list.add(new Menu(5,"카페모카",5000,""));
+//		list.add(new Menu(6,"아이스 카페모카",5500,""));
 	}
 	
 	@Override
