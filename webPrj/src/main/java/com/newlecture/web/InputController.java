@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/input")
-public class InputControllerr extends HelloServlet {
+public class InputController extends HelloServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -25,6 +25,8 @@ public class InputControllerr extends HelloServlet {
 		out.printf(" %s,<br> %s,<br> %s,<br>",p,q,s);
 		out.print(qr+"<br>");
 		
+//		String[] hbs=req.getParameterValues("hb");
+//		req.setAttribute("hbs", hbs); 다중선택값 배열로 들어온다
 
 		
 		out.printf(" %s<br>",web);

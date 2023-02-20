@@ -11,7 +11,7 @@
  	param: ${param.p}
  	<br>
  	header : ${header["User-Agent"]}
-	<form action="/input">
+	<form action="/input" method="post">
 		<label>page:</label>
 		<input type="text" name="p">
 	  	<label>HO:</label>

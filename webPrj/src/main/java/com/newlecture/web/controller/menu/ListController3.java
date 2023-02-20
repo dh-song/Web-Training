@@ -30,6 +30,7 @@ public class ListController3 extends HttpServlet {
 		resp.setContentType("text/html; charset=utf-8"); //html 이면 out 태그로 인식
 		PrintWriter out = resp.getWriter();
 		
+		
 		out.print("hello !");
 		
 //		Menu[] list = service.getList();
