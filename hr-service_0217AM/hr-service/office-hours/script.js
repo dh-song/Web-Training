@@ -30,12 +30,16 @@ window.onload = function () {
 	function restEditorOnListener(){
 		restEditorBox.classList.remove("d-none");
 		sideMenub.classList.remove("d-none");
-		// restPopupChk.checked = true;
+		// restEditorBox.style.transition = "all 0.6s ease-in-out";
+		restEditorBox.style.transform = "translateY(100vh)";
+				// restPopupChk.checked = true;
 	}
 
 	function restEditorOffListener(){
 		restEditorBox.classList.add("d-none");
 		sideMenub.classList.add("d-none");
+		restEditorBox.style.transform = "translateY(0)";
+		
 		// restPopupChk.checked = false;
 	}
 	//휴게편집창 추가 부분 ↑↑↑↑

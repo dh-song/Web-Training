@@ -19,4 +19,14 @@
     <servlet-name>ChatServer</servlet-name>
     <url-pattern>/ChatServer</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>JSPDispatcherServlet</display-name>
+    <servlet-name>JSPDispatcherServlet</servlet-name>
+    <servlet-class>com.newlecture.web.controller.JSPDispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JSPDispatcherServlet</servlet-name>
+    <url-pattern>/JSPDispatcherServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

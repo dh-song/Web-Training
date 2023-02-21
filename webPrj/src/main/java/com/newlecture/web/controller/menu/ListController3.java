@@ -12,6 +12,7 @@ import com.newlecture.web.service.MenuService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -32,7 +33,10 @@ public class ListController3 extends HttpServlet {
 		
 		
 		out.print("hello !");
-		
+		Cookie ck = new Cookie("dadad", "hoho");
+		ck.setPath("/");
+		ck.setMaxAge(60*24);
+		resp.addCookie(ck);
 //		Menu[] list = service.getList();
 //		int count = service.count();
 		
