@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		.progress {
+			border: 1px #B9B7B7 solid;
+		}
+
+		.progress-bar {
+			background-color: #5A8FE0;
+		}
+
+		.progress {
+			width: 300px;
+			height: 18px;
+		}
+
+
+		.progress-bar {
+			height: 18px;
+		}
+
+		/* .time-offset{
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+			font-size: 0.5rem;
+		} */
+
+		.time-offset-items {
+			width: 300px;
+			display: flex;
+			flex-direction: row;
+
+		}
+
+		.time-offset-items>div {
+			text-align: right;
+			font-size: 0.7rem;
+		}
+
+		.time-offset-items>:nth-child(1) {
+			color: rgb(0, 0, 0);
+			flex-grow: 0;
+		}
+
+		.time-offset-items>:nth-child(2) {
+			color: rgba(13, 172, 21, 0.733);
+			flex-grow: 0.7;
+		}
+
+		.time-offset-items>:nth-child(3) {
+			color: rgb(47, 0, 255);
+			flex-grow: 0.5;
+		}
+
+		.time-offset-items>:nth-child(4) {
+			color: rgb(255, 0, 0);
+			flex-grow: 0.2;
+
+		}
+
+		.d-none {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<button class="btn">1</button><button class="btn">2</button><button class="btn">3</button>
+	<div class="progress">
+		<div class="progress-bar">
+			<div class="bar-value">
+			</div>
+		</div>
+	</div>
+	<!-- <div class="time-offset"> -->
+	<div class="time-offset-items time-offset-day">
+		<div>0</div>
+		<div>8</div>
+		<div>12</div>
+		<div>14</div>
+	</div>
+	<div class="time-offset-items time-offset-week d-none">
+		<div>0</div>
+		<div>40</div>
+		<div>52</div>
+		<div>70</div>
+	</div>
+	<div class="time-offset-items time-offset-month d-none">
+		<div>0</div>
+		<div></div>
+		<div></div>
+		<div>160</div>
+	</div>
+	<!-- </div> -->
+
+	<script>
+		let progressBarMax = getComputedStyle(document.querySelector('.progress')).width;
+		let progressRate = 0.5;
+		document.querySelector('.progress-bar').style.width = progressRate * parseInt(progressBarMax) + 'px';
+		// console.log((50 / 100) * parseInt(progressBarMax));
+
+		let btn = document.querySelector(".btn");
+	
+		
+		
+
+		// addEventListener('click',function(e){
+		// 	console.log(e.target.className);
+		
+		// });
+		
+	</script>
+</body>
+
+</html>
