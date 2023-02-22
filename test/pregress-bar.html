@@ -73,7 +73,13 @@
 </head>
 
 <body>
-	<button class="btn">1</button><button class="btn">2</button><button class="btn">3</button>
+
+	<div><button class="date-prev" >뒤로</button><div class="selected-date"></div><button class="date-next">앞으로</button></div>
+	<br>
+
+	<button class="date-selector" value="day">1</button>
+	<button class="date-selector" value="week">2</button>
+	<button class="date-selector" value="month">3</button>
 	<div class="progress">
 		<div class="progress-bar">
 			<div class="bar-value">
@@ -105,11 +111,40 @@
 		let progressBarMax = getComputedStyle(document.querySelector('.progress')).width;
 		let progressRate = 0.5;
 		document.querySelector('.progress-bar').style.width = progressRate * parseInt(progressBarMax) + 'px';
+
+		let date = new Date();
+		let sd = document.querySelector(".selected-date");
+		sd.innerHTML= date;
 		// console.log((50 / 100) * parseInt(progressBarMax));
 
-		let btn = document.querySelector(".btn");
-	
+		// let dateSelector = document.querySelectorAll(".date-selector");
+		// let ds = document.getElementsByClassName("date-selector");
+		// let day = document.querySelector(".time-offset-day");
+		// let week = document.querySelector(".time-offset-week");
+		// let month = document.querySelector(".time-offset-month");
 		
+		
+		// dateSelector.addEventListener("click",(e)=>{
+		// 	console.log(e.target.value);
+		// 	switch (e.target.value){
+    	// case "day" :
+		// 		day.classList.remove("d-none");
+		// 		week.classList.add("d-none");
+		// 		month.classList.add("d-none");
+        // break;
+    	// case "week" :
+		// 		day.classList.add("d-none");
+		// 		week.classList.remove("d-none");
+		// 		month.classList.add("d-none");
+        // break;
+    	// case "month" :
+        // 		day.classList.add("d-none");
+		// 		week.classList.add("d-none");
+		// 		month.classList.remove("d-none");
+        // break;
+		// }
+	// });
+
 		
 
 		// addEventListener('click',function(e){
